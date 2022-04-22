@@ -1,0 +1,17 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+<div class="cards">
+<% @cars.each do |car| %>
+  <ul>
+    <li><%= car.brand %></li>
+    <li><%= car.price %></li>
+    <li><%= image_tag ("#{car.photo_url}"), class: "image-cars" %></li>
+    <%= link_to "Reservez", new_car_booking_path(car), class: "btn btn-flat" %>
+  </ul>
+<% end %>
+      </div>
+    </div>
+  </div>
+</div>
