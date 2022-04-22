@@ -1,3 +1,3 @@
 class Car < ApplicationRecord
-  has_many :booking, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 end

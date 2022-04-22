@@ -1,20 +1,22 @@
 class BookingsController < ApplicationController
-  class BookingsController < ApplicationController
 
     def index
       @bookings = Booking.all
     end
 
     def new
-      @booking = Bookging.new
+      @car = Car.find(params[:car_id])
+      @booking = Booking.new
     end
 
     def create
       @booking = Booking.new(booking_params)
+      @car = Car.find(params[:car_id])
       @booking.car = @car
+      @booking.user = current_user
 
       if @booking.save
-        redirect_to root_path(@car)
+        redirect_to root_path
       else
         render :new
       end
@@ -39,4 +41,3 @@ class BookingsController < ApplicationController
       @car = Car.find(params[:car_id])
     end
   end
-end
