@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
+      flash.alert = "Votre réservation a bien été enregistrée"
       redirect_to root_path
     else
       render :new
@@ -29,7 +30,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:duration, :user_id, :car_id)
+    params.require(:booking).permit(:duration, :endduration, :user_id, :car_id)
   end
 
   def set_booking
